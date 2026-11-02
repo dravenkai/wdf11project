@@ -17,20 +17,63 @@ $(document).ready(function () {
   // End Back To Top
 
   // Start Nav Bar
+  const sectionIds = [
+    "home",
+    "about",
+    "properties",
+    "services",
+    "customers",
+    "furniture",
+    "contact",
+  ];
+
+  function setActiveMenu() {
+    const marker = 140;
+    let current = "home";
+
+    sectionIds.forEach(function (id) {
+      const section = document.getElementById(id);
+      if (!section) return;
+      if (section.getBoundingClientRect().top - marker <= 0) {
+        current = id;
+      }
+    });
+
+    $(".menuitems").removeClass("active");
+    $('.menuitems[href="#' + current + '"]').addClass("active");
+  }
+
   $(window).scroll(function () {
     let position = $(this).scrollTop();
-
-    // console.log(position);
 
     if (position >= 200) {
       $(".navbar").addClass("navmenus");
     } else {
       $(".navbar").removeClass("navmenus");
     }
+
+    setActiveMenu();
   });
 
-  $(".navbuttons").click(function () {
-    $(".navbuttons").toggleClass("crossxs");
+  setActiveMenu();
+
+  const navEl = document.getElementById("nav");
+
+  navEl.addEventListener("shown.bs.collapse", function () {
+    $(".navbuttons").addClass("crossxs");
+  });
+
+  navEl.addEventListener("hidden.bs.collapse", function () {
+    $(".navbuttons").removeClass("crossxs");
+  });
+
+  $(".menuitems").on("click", function () {
+    $(".menuitems").removeClass("active");
+    $(this).addClass("active");
+
+    if (navEl.classList.contains("show")) {
+      bootstrap.Collapse.getOrCreateInstance(navEl, { toggle: false }).hide();
+    }
   });
 
   // End Nav Bar

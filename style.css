@@ -6,6 +6,10 @@
   --secondary-color: hsla(203, 100%, 13%, 1);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Source Sans Pro", sans-serif;
   padding: 0;
@@ -75,7 +79,7 @@ body {
 header {
   height: 100vh;
   background: linear-gradient(30deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
-    url("../assets/img/banner/banner2.jpg");
+    url("./img/img/banner/banner2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -102,8 +106,13 @@ header {
   transition: color 0.5s;
 }
 
-.menuitems:hover {
+.navbar .menuitems:hover,
+.navbar .menuitems.active {
   color: skyblue;
+}
+
+.navbar .menuitems.active {
+  border-bottom: 2px solid skyblue;
 }
 
 .lines1,
@@ -126,6 +135,15 @@ header {
 
 .crossxs .lines3 {
   transform: rotate(45deg) translate(-6px, -6px);
+}
+
+#about,
+#properties,
+#services,
+#customers,
+#furniture,
+#contact {
+  scroll-margin-top: 110px;
 }
 
 /*End Navbar*/
@@ -175,7 +193,7 @@ header {
 
 .aboutuss {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("../assets/img/banner/banner2.jpg");
+    url("./img/img/banner/banner2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -422,7 +440,7 @@ ul.clientlists li:hover {
 /*Start Customers Section*/
 .customers {
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)),
-    url("./../assets/img/banner/banner3.jpg");
+    url("./img/img/banner/banner3.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -492,7 +510,7 @@ ul.clientlists li:hover {
       rgba(0, 0, 0, 0.5) 30%,
       transparent 70%
     ),
-    url("./../assets/img/banner/banner3.jpg");
+    url("./img/img/banner/banner3.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
